@@ -11,10 +11,8 @@ const images = [
 
 function Gallery() {
   return (
-    <div className="h-screen w-screen flex flex-col justify-center items-center text-[#f5e4d0] px-4 relative z-10">
+    <div className="h-screen w-screen flex flex-col justify-center items-center text-[#f5e4d0] px-4  z-10 overflow-hidden">
 
-      {/* Optional overlay */}
-      {/* <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] z-[-1]"></div> */}
 
       {/* Text Section */}
       <div className="w-full md:w-[60%] flex flex-col justify-center items-start mt-10">

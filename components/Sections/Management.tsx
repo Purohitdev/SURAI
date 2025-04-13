@@ -20,30 +20,32 @@ const teamMembers = [
 
 function Management() {
   return (
-    <div className="min-h-screen w-screen flex flex-col items-center justify-center px-6 md:px-20 text-[#f3e1c6] relative z-10">
+    <div className="h-screen w-screen flex flex-col items-center justify-center px-6 md:px-20 text-[#f3e1c6] relative z-10">
       {/* Background overlay */}
-      {/* <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] z-[-1]" /> */}
 
-      <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-12 tracking-wide">
+      <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-4 sm:mb-12 tracking-wide">
         MEET OUR <span className="text-[#dab67d]">CULINARY CREATORS</span>
       </h1>
 
-      <div className="flex gap-10 flex-wrap justify-center items-center w-full max-w-6xl">
-        {teamMembers.map((member, index) => (
-          <div
-            key={index}
-            className="bg-white/10 border border-[#dab67d]/20 backdrop-blur-sm p-6 rounded-2xl shadow-xl text-center w-64 hover:scale-105 hover:shadow-2xl transition-transform duration-300"
-          >
-            <img
-              src={member.image}
-              alt={member.name}
-              className="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-[#dab67d]/50 shadow-md"
-            />
-            <h2 className="text-xl font-semibold font-serif text-[#f3e1c6]">{member.name}</h2>
-            <p className="text-sm text-[#e3cba4]">{member.role}</p>
-          </div>
-        ))}
-      </div>
+      <div className="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8 justify-center items-center w-full max-w-4xl  h-auto px-2 sm:px-0">
+  {teamMembers.map((member, index) => (
+    <div
+      key={index}
+      className="bg-white/10 border border-[#dab67d]/20 backdrop-blur-sm p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-md text-center w-full hover:scale-[1.02] hover:shadow-xl transition-transform duration-300"
+    >
+      <img
+        src={member.image}
+        alt={member.name}
+        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto object-cover mb-3 sm:mb-4 border-2 border-[#dab67d]/50 shadow"
+      />
+      <h2 className="text-base sm:text-xl font-semibold font-serif text-[#f3e1c6]">
+        {member.name}
+      </h2>
+      <p className="text-xs sm:text-sm text-[#e3cba4]">{member.role}</p>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 }

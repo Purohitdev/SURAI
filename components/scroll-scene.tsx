@@ -9,11 +9,7 @@ import {
   useMemo,
 } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  useGLTF,
-  Environment,
-  PerspectiveCamera,
-} from "@react-three/drei";
+import { useGLTF, PerspectiveCamera } from "@react-three/drei";
 import {
   Group,
   PerspectiveCamera as PerspectiveCameraImpl,
@@ -21,14 +17,13 @@ import {
 } from "three";
 
 // Components
-import Navbar from "./Nav";
 import Introduction from "./Sections/Introduction";
 import Gallery from "./Sections/Gallery";
 import Menu from "./Sections/Menu";
 import Reservations from "./Sections/Reservations";
 import Management from "./Sections/Management";
 import Footer from "./Sections/Footer";
-import SectionWrapper from "./SectionWrapper"; // 👈 Import the wrapper
+import SectionWrapper from "./SectionWrapper";
 
 export default function ScrollScene() {
   const [scrollY, setScrollY] = useState(0);
@@ -63,14 +58,17 @@ export default function ScrollScene() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* 3D Canvas Background */}
+      {/* 🖼️ Background Image */}
+      <img
+        src="/back.webp" // Make sure this file is in your /public folder
+        alt="background"
+        className="fixed inset-0 w-full h-full object-cover z-[-30]"
+      />
+
+      {/* 3D Canvas */}
       <div className="fixed inset-0 -z-20">
         <Canvas shadows>
-          {/* <color attach="background" args={["#403d39"]} /> */}
-          <Environment files="https://www.shutterstock.com/image-photo/weather-dramatic-black-rain-clouds-600nw-2353892453.jpg" background />
-
           <ScrollController scrollY={scrollY} />
-          <Environment preset="city" />
           <ambientLight intensity={0.8} />
           <directionalLight position={[5, 10, 5]} intensity={1} castShadow />
           <Suspense fallback={null}>
@@ -79,16 +77,12 @@ export default function ScrollScene() {
         </Canvas>
       </div>
 
-      {/* Overlay Gradient */}
+      {/* Optional Overlay Gradient */}
       <div className="fixed inset-0 z-[-10] pointer-events-none">
         <div className="w-full h-full bg-gradient-to-b from-transparent via-black/30 to-black" />
       </div>
 
       {/* Navbar */}
-      <Navbar />
-
-
-      
 
       {/* Scrollable Content */}
       <div
@@ -120,8 +114,8 @@ function ScrollController({ scrollY }: { scrollY: number }) {
       const totalScroll = 6 * window.innerHeight;
       const progress = Math.min(1, scrollY / totalScroll);
 
-      const startPosition = new Vector3(0, 0, 12);
-      const endPosition = new Vector3(0, 0, -20);
+      const startPosition = new Vector3(0, 0, 17);
+      const endPosition = new Vector3(0, 0, -25);
       const newPosition = startPosition.clone().lerp(endPosition, progress);
 
       cameraRef.current.position.copy(newPosition);
@@ -173,9 +167,9 @@ function Model({ setIsLoaded }: { setIsLoaded: (loaded: boolean) => void }) {
       targetRotation.current.x = mouse.current.y * 0.05;
       targetRotation.current.y = mouse.current.x * 0.1;
 
-      group.current.rotation.x += (targetRotation.current.x - group.current.rotation.x) * 0.03; // ↓ from 0.05
-      group.current.rotation.y += (targetRotation.current.y + Math.PI / 2 - group.current.rotation.y) * 0.03; // ↓ from 0.05
-      
+      group.current.rotation.x += (targetRotation.current.x - group.current.rotation.x) * 0.03;
+      group.current.rotation.y +=
+        (targetRotation.current.y + Math.PI / 2 - group.current.rotation.y) * 0.03;
     }
   });
 

@@ -1,27 +1,29 @@
+
+
 import React from "react";
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="w-full h-screen text-[#f3e1c6] px-6 md:px-20 py-20 relative overflow-hidden z-10 bg-[#0f0f0f]/40 flex flex-col justify-between">
+    <footer className="w-full min-h-screen text-[#f3e1c6] px-4 sm:px-6 md:px-20 py-10 sm:py-16 relative overflow-hidden z-10 bg-[#0f0f0f]/40 flex flex-col justify-between">
       {/* Royal Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-[#1a1a1a] to-black/70 backdrop-blur-[2px] z-[-1] opacity-80" />
 
       {/* Main Content */}
-      <div className="flex-grow flex items-center">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 w-full">
+      <div className="flex-grow flex items-center ">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 w-full">
           {/* Left Block */}
-          <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-serif font-extrabold text-[#dab67d] tracking-wide">
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold text-[#dab67d] tracking-wide">
               Surai Restaurant
             </h2>
-            <p className="text-[#e9d7bb] text-lg max-w-md leading-relaxed tracking-wide">
+            <p className="text-[#e9d7bb] text-base sm:text-lg max-w-md leading-relaxed tracking-wide">
               Thank you for visiting <span className="text-[#dab67d] font-semibold">Surai</span> —
               where Rajasthani heritage meets luxury dining.
               Join us again to relish flavors that echo the grandeur of royalty.
             </p>
 
-            <div className="flex gap-6 text-[#dab67d] text-2xl mt-6">
+            <div className="flex gap-5 sm:gap-6 text-[#dab67d] text-xl sm:text-2xl mt-4 sm:mt-6">
               <a href="#" className="hover:text-[#f3e1c6] transition-all duration-300 scale-100 hover:scale-110" aria-label="Instagram">
                 <FaInstagram />
               </a>
@@ -35,9 +37,9 @@ function Footer() {
           </div>
 
           {/* Map Block */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-[#dab67d] mb-2">Visit Us</h3>
-            <div className="w-full h-72 rounded-2xl overflow-hidden border border-[#dab67d]/40 shadow-xl">
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#dab67d]">Visit Us</h3>
+            <div className="w-full h-64 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden border border-[#dab67d]/40 shadow-xl">
               <iframe
                 title="Google Maps"
                 className="w-full h-full"
@@ -52,10 +54,10 @@ function Footer() {
       </div>
 
       {/* Divider Line */}
-      <div className="w-full border-t border-[#dab67d]/30 mt-12"></div>
+      <div className="w-full border-t border-[#dab67d]/30 mt-10 sm:mt-12"></div>
 
       {/* Footer Bottom */}
-      <div className="text-sm text-[#e9d7bb] text-center mt-4">
+      <div className="text-xs sm:text-sm text-[#e9d7bb] text-center mt-4">
         © {new Date().getFullYear()} <span className="text-[#dab67d] font-medium">Surai</span>. All rights reserved.
       </div>
     </footer>
